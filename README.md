@@ -1,2 +1,2 @@
 # BigData-Learning
-Record of learning hadoop、Spark etc..
+Record of learning Hadoop、Spark and etc..
