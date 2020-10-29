@@ -3,7 +3,7 @@ package dzg.scala.day5
 import java.sql
 import java.sql.DriverManager
 
-import org.apache.spark.rdd.JdbcRDD
+import org.apache.spark.rdd.{JdbcRDD, RDD}
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
@@ -24,6 +24,10 @@ object JdbcRddDemo {
     val conf: SparkConf = new SparkConf().setAppName("JdbcRddDemo").setMaster("local[4]")
 
     val sc: SparkContext = new SparkContext(conf)
+
+    val rdd: RDD[Range.Inclusive] = sc.parallelize(Array(1 to 10))
+    var counter = 0
+//    rdd.foreach(x => counter + x)
 
     //创建RDD，从MySQL中读取数据
     //new了RDD，里面没有真正要计算的数据
