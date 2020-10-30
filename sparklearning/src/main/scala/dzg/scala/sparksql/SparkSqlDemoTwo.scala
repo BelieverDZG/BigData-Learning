@@ -45,8 +45,8 @@ object SparkSqlDemoTwo {
       val fv: Double = fields(3).toDouble
       Row(id, name, age, fv)
     })
-    //结果类型，其实就是表头用于描述DataFrame
 
+    //结果类型，其实就是表头用于描述DataFrame
     val schema = StructType(List(
       StructField("id", LongType, true),
       StructField("name", StringType, true),

@@ -42,7 +42,6 @@ object SparkSqlDemoOne {
       val age: Int = fields(2).toInt
       val fv: Double = fields(3).toDouble
       Boy(id, name, age, fv)
-
     })
 
     //结果类型，其实就是表头用于描述DataFrame

@@ -23,6 +23,9 @@ object SQLWordCount {
     //切分压平
     import session.implicits._ //导入隐式转换
     val words: Dataset[String] = lines.flatMap(line => line.split(" "))
+//    val wods: Dataset[String] = lines.flatMap(new Runnable {
+//      override def run(): Unit = ???
+//    })
 
     //注册视图
     words.createTempView("t_word")

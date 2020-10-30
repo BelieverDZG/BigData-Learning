@@ -26,7 +26,9 @@ object DataSetWordCount {
 
     //使用DataSet的API（DSL）
 //    val count: DataFrame = words.groupBy($"value" as "word").count().sort($"count" desc)
-//    count.show()
+    val frame: DataFrame = words.groupBy($"value" as( "word")).count()
+    val num: Long = frame.count()
+    //    count.show()
 
     //导入聚合函数
     import org.apache.spark.sql.functions._
