@@ -19,7 +19,7 @@ import org.apache.spark.{SparkConf, SparkContext}
  *       6）show或者是保存上一步的执行结果
  *       7）关闭session
  */
-object SparkSqlDemoThree {
+object SparkSqlBySparkSessionDemo{
 
   def main(args: Array[String]): Unit = {
 

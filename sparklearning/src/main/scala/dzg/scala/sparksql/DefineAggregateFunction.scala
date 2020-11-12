@@ -7,9 +7,10 @@ import org.apache.spark.sql.types.{DataType, DoubleType, LongType, StructField, 
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
 /**
+ * 用户自定义聚合函数测试
+ *
  * @author BelieverDzg
  * @date 2020/10/30 15:09
- *       用户自定义聚合函数测试
  */
 object DefineAggregateFunction {
   //几何平均数 ，乘积后开根号
@@ -22,10 +23,10 @@ object DefineAggregateFunction {
 
     val gm = new GeoMean
     //注册函数
-//    spark.udf.register("gm", gm);
-//    nums.createTempView("v_range")
-//    nums.show()
-//    val result: DataFrame = spark.sql("select gm(id) result from v_range")
+    //    spark.udf.register("gm", gm);
+    //    nums.createTempView("v_range")
+    //    nums.show()
+    //    val result: DataFrame = spark.sql("select gm(id) result from v_range")
     import spark.implicits._
     val result: Dataset[Row] = nums.agg(gm($"id")).as("geomean")
     result.show()

@@ -19,15 +19,15 @@ object ReadDifferentDataSource {
     //文件读取数据时会检验文件数据的校验和
     //若源文件被修改，进行校验和检验的时候发现不同，会报错
     //Caused by: org.apache.hadoop.fs.ChecksumException: Checksum error: file:
-    val jsonFrame: DataFrame = spark.read.json("d:/saved_json")
-    jsonFrame.show()
-
-    val csvFrame: DataFrame = spark.read.csv("d:/saved_csv")
-    csvFrame.show()
-    csvFrame.printSchema()
-
-    val df: DataFrame = csvFrame.toDF("id","name","age")
-    df.show()
+//    val jsonFrame: DataFrame = spark.read.json("d:/saved_json")
+//    jsonFrame.show()
+//
+//    val csvFrame: DataFrame = spark.read.csv("d:/saved_csv")
+//    csvFrame.show()
+//    csvFrame.printSchema()
+//
+//    val df: DataFrame = csvFrame.toDF("id","name","age")
+//    df.show()
 
     /**
      * parquet是列式存储的文件格式
@@ -41,6 +41,10 @@ object ReadDifferentDataSource {
     parquetFrame.printSchema()
     parquetFrame.show()
 
+    val orcFrame: DataFrame = spark.read.format("orc").load("d:/saved_orc")
+    orcFrame.printSchema()
+
+    orcFrame.show()
     spark.stop()
   }
 }

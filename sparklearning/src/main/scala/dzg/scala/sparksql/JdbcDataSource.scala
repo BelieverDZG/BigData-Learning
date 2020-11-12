@@ -63,6 +63,7 @@ object JdbcDataSource {
 //    result.write.json("d:/saved_json")
 //    result.write.csv("d:/saved_csv")
 //    result.write.parquet("d:/saved_parquet")
+    result.write.orc("d:/saved_orc")
     spark.stop()
   }
 }

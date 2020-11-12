@@ -3,6 +3,7 @@ package dzg.scala.day5
 import java.io.{FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream}
 
 import org.apache.spark.SparkContext
+import org.apache.spark.sql.Encoders
 
 
 /**
@@ -47,7 +48,6 @@ object SerializationDemo {
      *
      *
      */
-
   }
 
 }
@@ -64,3 +64,5 @@ class MapTask extends Serializable {
     arr.length
   }
 }
+
+case class Person(name:String,age:Int)

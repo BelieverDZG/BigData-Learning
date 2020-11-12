@@ -18,7 +18,7 @@ import org.apache.spark.{SparkConf, SparkContext}
  *       5）执行sql（Transformation，lazy）
  *       6）执行Action
  */
-object SparkSqlDemoOne {
+object SparkSqlBySQLContextDemo {
 
   def main(args: Array[String]): Unit = {
     //提交的这个程序可以连接到Spark集群中

@@ -19,7 +19,7 @@ import org.apache.spark.{SparkConf, SparkContext}
  *       6）执行sql（Transformation，lazy）
  *       7）执行Action
  */
-object SparkSqlDemoTwo {
+object SparkSqlBySqlContextDemoTwo {
 
   def main(args: Array[String]): Unit = {
 
