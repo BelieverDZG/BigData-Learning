@@ -57,6 +57,7 @@ object ORCAndParquetCompare {
     var i = 0
     while(i < 10){
 
+      i =  i+1;
     }
 //    df.write.format("parquet").save("d:/exp/watdiv.100m/parquet_3")
     df.write.format("orc").save("d:/exp/watdiv.100m/orc_3")

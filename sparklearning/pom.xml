@@ -18,10 +18,18 @@
         <spark.version>2.4.5</spark.version>
         <hadoop.version>2.9.2</hadoop.version>
         <mysql.version>8.0.17</mysql.version>
+        <jackson.version>2.9.6</jackson.version>
         <encoding>UTF-8</encoding>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
         <!-- 导入scala的依赖 -->
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -68,6 +76,15 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.jena/jena -->
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-tdb</artifactId>
+            <version>3.16.0</version>
+            <type>pom</type>
+        </dependency>
+
     </dependencies>
 
     <build>
