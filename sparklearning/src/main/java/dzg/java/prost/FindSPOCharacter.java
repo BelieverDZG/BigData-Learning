@@ -24,6 +24,8 @@ public class FindSPOCharacter {
     //subject-objs
     static Map<String, List<String>> maps = new ConcurrentHashMap<>();
 
+
+
     public static void main(String[] args) {
 
 //        SparkConf conf = new SparkConf()
@@ -39,6 +41,7 @@ public class FindSPOCharacter {
         Dataset<String> dataset = spark.read().textFile("D:\\RDF数据\\watdiv.10M\\watdiv.10M.nt");
 
         Dataset<Row> df = dataset.toDF();
+
 
         df.printSchema();
         long begin = System.currentTimeMillis();
