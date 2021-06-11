@@ -5,10 +5,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 分析json文件，vp表中数据倾斜问题，设置一个合理的阈值 ，使用broadcast join
@@ -20,9 +17,10 @@ public class DataAnalysis {
 
     public static void main(String[] args) {
         ObjectMapper mapper = new ObjectMapper();
-        File file = new File("E:\\yago2.json");
+        File file = new File("D:\\RDF数据\\实验结果数据\\watdiv1000Res\\watdiv1000.json");
         JsonNode rootNode;
         List<Integer> tuples = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
         int sum = 0;
@@ -33,6 +31,9 @@ public class DataAnalysis {
         int inverseTrueNum = 0;
         int inverseFalseNum = 0;
         Set<String> complex = new HashSet<>();
+
+        long distinctSubjects = 0 , distinctObjects = 0;
+
         try {
             rootNode = mapper.readValue(file, JsonNode.class);
             JsonNode databaseName = rootNode.path("databaseName");
@@ -64,10 +65,19 @@ public class DataAnalysis {
                 min = Math.min(min, tuplesNumber);
                 sum += tuplesNumber;
                 tuples.add(tuplesNumber);
+
+                distinctSubjects += jsonNode.path("distinctSubjects").asLong();
+                distinctObjects += jsonNode.path("distinctObjects").asLong();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        for (int val : tuples){
+//            System.out.println(val);
+//        }
+
+
+//        System.out.println("tuples size : " + tuples.size());
         tuples.sort(Integer::compareTo);
         int size = tuples.size();
         avg = sum / size;
@@ -89,5 +99,11 @@ public class DataAnalysis {
 
         System.out.println("O -> S true num : " + inverseTrueNum);
         System.out.println("O -> S false num : " + inverseFalseNum);
+
+
+        System.out.println("==============================");
+
+        System.out.println("distinctSubjects : " + distinctSubjects);
+        System.out.println("distinctObjects : " + distinctObjects);
     }
 }

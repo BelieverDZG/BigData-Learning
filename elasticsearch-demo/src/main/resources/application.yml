@@ -1,0 +1,8 @@
+#spring:
+#  data:
+#    elasticsearch:
+#      client:
+#        reactive:
+#          endpoints: 127.0.0.1:9300
+#      repositories:
+#        enabled: true
