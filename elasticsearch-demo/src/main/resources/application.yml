@@ -6,3 +6,10 @@
 #          endpoints: 127.0.0.1:9300
 #      repositories:
 #        enabled: true
+server:
+  port: 9090
+
+spring:
+  thymeleaf:
+    cache: false #关闭缓存
+
